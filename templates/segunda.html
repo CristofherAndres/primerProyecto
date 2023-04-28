@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Segunda página
+{% endblock %}
+
+{% block contenido %}
+
+<h1>Segunda página</h1>
+
+<p>Este es el contenido de la segunda página</p>
+
+{% if user.is_authenticated %}
+Hi {{ user.username }}!
+
+<!-- Cerrar sesión -->
+<a href="{% url 'logout' %}">Log Out</a>
+
+
+{% else %}
+<h1>No estas logeado</h1>
+<a href="{% url 'tabla' %}" class="btn btn-info">Ver tabla</a>
+<a href="{% url 'login2' %}" class="btn btn-success">Iniciar sesión</a>
+{% endif %}
+
+{% endblock%}
